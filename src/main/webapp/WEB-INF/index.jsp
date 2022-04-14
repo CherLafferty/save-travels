@@ -31,14 +31,23 @@
 						<th>Expense</th>
 						<th>Vendor</th>
 						<th>Amount</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${allTravels}" var="travel">
 						<tr>
-							<td><c:out value="${travel.expenseName}" /></td>
+							<td>
+							<a href="/expenses/${travel.id}"><c:out value="${travel.expenseName}" /></a>
+							</td>
 							<td><c:out value="${travel.vendor}" /></td>
 							<td><c:out value="${travel.amount}" /></td>
+							<td><a href="/expenses/edit/${travel.id}">edit</a>
+								<form action="/expenses/${travel.id}" method="post">
+									<input type="hidden" name="_method" value="delete">
+									<input type="submit" value="Delete">
+								</form>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

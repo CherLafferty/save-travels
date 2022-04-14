@@ -37,7 +37,15 @@ public class TravelService {
 		}
 	}
 	
+	//UPDATE
+	public Travel updateTravel(Travel travel) {
+		return travelRepo.save(travel);
+	}
 	
+	//DELETE
+	public void delteTravel(Long id) {
+		travelRepo.deleteById(id);
+	}
 	
 
 }
